@@ -515,25 +515,25 @@ VALUE hpricot_scan(int argc, VALUE *argv, VALUE self)
 	switch ( cs )
 	{
 tr0:
-#line 73 "hpricot_scan.rl"
+#line 73 "hpricot_common.rl"
 	{{p = ((te))-1;}{ TEXT_PASS(); }}
 	goto st204;
 tr4:
-#line 71 "hpricot_scan.rl"
+#line 71 "hpricot_common.rl"
 	{te = p+1;{ {goto st214;} }}
 	goto st204;
 tr15:
 #line 113 "hpricot_scan.rl"
 	{ SET(tag, p); }
-#line 66 "hpricot_scan.rl"
+#line 66 "hpricot_common.rl"
 	{te = p+1;{ ELE(doctype); }}
 	goto st204;
 tr18:
-#line 66 "hpricot_scan.rl"
+#line 66 "hpricot_common.rl"
 	{te = p+1;{ ELE(doctype); }}
 	goto st204;
 tr39:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{	switch( act ) {
 	case 8:
 	{{p = ((te))-1;} ELE(doctype); }
@@ -551,27 +551,27 @@ tr39:
 	}
 	goto st204;
 tr93:
-#line 72 "hpricot_scan.rl"
+#line 72 "hpricot_common.rl"
 	{te = p+1;{ {goto st216;} }}
 	goto st204;
 tr97:
 #line 113 "hpricot_scan.rl"
 	{ SET(tag, p); }
-#line 69 "hpricot_scan.rl"
+#line 69 "hpricot_common.rl"
 	{te = p+1;{ ELE(etag); }}
 	goto st204;
 tr99:
-#line 69 "hpricot_scan.rl"
+#line 69 "hpricot_common.rl"
 	{te = p+1;{ ELE(etag); }}
 	goto st204;
 tr103:
 #line 113 "hpricot_scan.rl"
 	{ SET(tag, p); }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{te = p+1;{ ELE(stag); }}
 	goto st204;
 tr107:
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{te = p+1;{ ELE(stag); }}
 	goto st204;
 tr112:
@@ -579,25 +579,25 @@ tr112:
 	{ SET(akey, p); }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{te = p+1;{ ELE(stag); }}
 	goto st204;
 tr117:
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{te = p+1;{ ELE(stag); }}
 	goto st204;
 tr118:
-#line 70 "hpricot_scan.rl"
+#line 70 "hpricot_common.rl"
 	{te = p+1;{ ELE(emptytag); }}
 	goto st204;
 tr129:
@@ -608,17 +608,17 @@ tr129:
   }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{te = p+1;{ ELE(stag); }}
 	goto st204;
 tr133:
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -627,7 +627,7 @@ tr133:
     if (*(p-1) == '"' || *(p-1) == '\'') { SET(aval, p-1); }
     else { SET(aval, p); }
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{te = p+1;{ ELE(stag); }}
 	goto st204;
 tr139:
@@ -640,50 +640,50 @@ tr139:
 	{ SET(akey, p); }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{te = p+1;{ ELE(stag); }}
 	goto st204;
 tr349:
-#line 67 "hpricot_scan.rl"
+#line 67 "hpricot_common.rl"
 	{{p = ((te))-1;}{ {goto st218;} }}
 	goto st204;
 tr363:
-#line 65 "hpricot_scan.rl"
+#line 65 "hpricot_common.rl"
 	{te = p+1;{ ELE(xmldecl); }}
 	goto st204;
 tr411:
-#line 73 "hpricot_scan.rl"
+#line 73 "hpricot_common.rl"
 	{te = p+1;{ TEXT_PASS(); }}
 	goto st204;
 tr412:
-#line 9 "hpricot_scan.rl"
+#line 9 "hpricot_common.rl"
 	{curline += 1;}
-#line 73 "hpricot_scan.rl"
+#line 73 "hpricot_common.rl"
 	{te = p+1;{ TEXT_PASS(); }}
 	goto st204;
 tr414:
-#line 73 "hpricot_scan.rl"
+#line 73 "hpricot_common.rl"
 	{te = p;p--;{ TEXT_PASS(); }}
 	goto st204;
 tr419:
-#line 66 "hpricot_scan.rl"
+#line 66 "hpricot_common.rl"
 	{te = p;p--;{ ELE(doctype); }}
 	goto st204;
 tr420:
-#line 67 "hpricot_scan.rl"
+#line 67 "hpricot_common.rl"
 	{te = p;p--;{ {goto st218;} }}
 	goto st204;
 st204:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{ts = 0;}
 	if ( ++p == pe )
 		goto _test_eof204;
 case 204:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{ts = p;}
 #line 689 "hpricot_scan.c"
 	switch( (*p) ) {
@@ -692,7 +692,7 @@ case 204:
 	}
 	goto tr411;
 tr413:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 #line 98 "hpricot_scan.rl"
 	{
@@ -706,7 +706,7 @@ tr413:
     mark_tag = NULL;
     ele_open = 1;
   }
-#line 73 "hpricot_scan.rl"
+#line 73 "hpricot_common.rl"
 	{act = 15;}
 	goto st205;
 st205:
@@ -1368,17 +1368,17 @@ case 39:
 		goto st39;
 	goto st29;
 tr56:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 #line 111 "hpricot_scan.rl"
 	{ mark_aval = p; }
-#line 66 "hpricot_scan.rl"
+#line 66 "hpricot_common.rl"
 	{act = 8;}
 	goto st206;
 tr63:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
-#line 66 "hpricot_scan.rl"
+#line 66 "hpricot_common.rl"
 	{act = 8;}
 	goto st206;
 st206:
@@ -1421,9 +1421,9 @@ case 41:
 		goto st41;
 	goto st26;
 tr76:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
-#line 66 "hpricot_scan.rl"
+#line 66 "hpricot_common.rl"
 	{act = 8;}
 	goto st207;
 st207:
@@ -1471,9 +1471,9 @@ case 43:
 		goto st43;
 	goto st24;
 tr78:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
-#line 66 "hpricot_scan.rl"
+#line 66 "hpricot_common.rl"
 	{act = 8;}
 	goto st208;
 st208:
@@ -1760,7 +1760,7 @@ tr105:
 tr114:
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -1853,7 +1853,7 @@ tr110:
 	{ SET(akey, p); }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -1861,7 +1861,7 @@ tr110:
 tr115:
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -2010,7 +2010,7 @@ case 70:
 tr131:
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -2029,7 +2029,7 @@ tr150:
 	{ mark_aval = p; }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -2124,7 +2124,7 @@ tr124:
 	{ mark_aval = p; }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -2137,7 +2137,7 @@ tr128:
   }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -2145,7 +2145,7 @@ tr128:
 tr132:
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -2165,7 +2165,7 @@ tr137:
 	{ SET(akey, p); }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -2180,7 +2180,7 @@ tr147:
   }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -2190,7 +2190,7 @@ tr151:
 	{ mark_aval = p; }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -2464,7 +2464,7 @@ case 81:
 tr170:
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -2483,7 +2483,7 @@ tr337:
 	{ mark_aval = p; }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -2576,7 +2576,7 @@ tr177:
 	{ SET(akey, p); }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -2584,7 +2584,7 @@ tr177:
 tr171:
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -2594,7 +2594,7 @@ tr338:
 	{ mark_aval = p; }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -2611,7 +2611,7 @@ case 84:
 	}
 	goto st80;
 tr158:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 #line 111 "hpricot_scan.rl"
 	{ mark_aval = p; }
@@ -2622,15 +2622,15 @@ tr158:
   }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{act = 10;}
 	goto st209;
 tr166:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 #line 116 "hpricot_scan.rl"
 	{
@@ -2639,51 +2639,51 @@ tr166:
   }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{act = 10;}
 	goto st209;
 tr172:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{act = 10;}
 	goto st209;
 tr179:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 #line 120 "hpricot_scan.rl"
 	{ SET(akey, p); }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{act = 10;}
 	goto st209;
 tr182:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
-#line 70 "hpricot_scan.rl"
+#line 70 "hpricot_common.rl"
 	{act = 12;}
 	goto st209;
 tr196:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -2692,17 +2692,17 @@ tr196:
     if (*(p-1) == '"' || *(p-1) == '\'') { SET(aval, p-1); }
     else { SET(aval, p); }
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{act = 10;}
 	goto st209;
 tr197:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 #line 111 "hpricot_scan.rl"
 	{ mark_aval = p; }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -2711,11 +2711,11 @@ tr197:
     if (*(p-1) == '"' || *(p-1) == '\'') { SET(aval, p-1); }
     else { SET(aval, p); }
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{act = 10;}
 	goto st209;
 tr205:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 #line 116 "hpricot_scan.rl"
 	{
@@ -2726,25 +2726,25 @@ tr205:
 	{ SET(akey, p); }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{act = 10;}
 	goto st209;
 tr339:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 #line 111 "hpricot_scan.rl"
 	{ mark_aval = p; }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{act = 10;}
 	goto st209;
 st209:
@@ -2992,7 +2992,7 @@ case 90:
 tr198:
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -3011,7 +3011,7 @@ tr190:
 	{ mark_aval = p; }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -3110,7 +3110,7 @@ tr187:
 	{ mark_aval = p; }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -3123,7 +3123,7 @@ tr164:
   }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -3131,7 +3131,7 @@ tr164:
 tr199:
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -3151,7 +3151,7 @@ tr203:
 	{ SET(akey, p); }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -3166,7 +3166,7 @@ tr156:
   }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -3176,7 +3176,7 @@ tr195:
 	{ mark_aval = p; }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -3463,7 +3463,7 @@ case 102:
 tr235:
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -3482,7 +3482,7 @@ tr332:
 	{ mark_aval = p; }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -3575,7 +3575,7 @@ tr241:
 	{ SET(akey, p); }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -3583,7 +3583,7 @@ tr241:
 tr236:
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -3593,7 +3593,7 @@ tr333:
 	{ mark_aval = p; }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -3610,7 +3610,7 @@ case 105:
 	}
 	goto st101;
 tr341:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 #line 111 "hpricot_scan.rl"
 	{ mark_aval = p; }
@@ -3621,15 +3621,15 @@ tr341:
   }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{act = 10;}
 	goto st210;
 tr258:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 #line 116 "hpricot_scan.rl"
 	{
@@ -3638,51 +3638,51 @@ tr258:
   }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{act = 10;}
 	goto st210;
 tr237:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{act = 10;}
 	goto st210;
 tr243:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 #line 120 "hpricot_scan.rl"
 	{ SET(akey, p); }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{act = 10;}
 	goto st210;
 tr246:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
-#line 70 "hpricot_scan.rl"
+#line 70 "hpricot_common.rl"
 	{act = 12;}
 	goto st210;
 tr262:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -3691,17 +3691,17 @@ tr262:
     if (*(p-1) == '"' || *(p-1) == '\'') { SET(aval, p-1); }
     else { SET(aval, p); }
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{act = 10;}
 	goto st210;
 tr329:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 #line 111 "hpricot_scan.rl"
 	{ mark_aval = p; }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -3710,11 +3710,11 @@ tr329:
     if (*(p-1) == '"' || *(p-1) == '\'') { SET(aval, p-1); }
     else { SET(aval, p); }
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{act = 10;}
 	goto st210;
 tr268:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 #line 116 "hpricot_scan.rl"
 	{
@@ -3725,25 +3725,25 @@ tr268:
 	{ SET(akey, p); }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{act = 10;}
 	goto st210;
 tr334:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 #line 111 "hpricot_scan.rl"
 	{ mark_aval = p; }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{act = 10;}
 	goto st210;
 st210:
@@ -3871,7 +3871,7 @@ case 108:
 tr260:
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -3890,7 +3890,7 @@ tr279:
 	{ mark_aval = p; }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -3989,7 +3989,7 @@ tr252:
 	{ mark_aval = p; }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -4002,7 +4002,7 @@ tr257:
   }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -4010,7 +4010,7 @@ tr257:
 tr261:
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -4030,7 +4030,7 @@ tr266:
 	{ SET(akey, p); }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -4045,7 +4045,7 @@ tr276:
   }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -4055,7 +4055,7 @@ tr280:
 	{ mark_aval = p; }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -4303,7 +4303,7 @@ case 117:
 tr282:
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -4322,7 +4322,7 @@ tr307:
 	{ mark_aval = p; }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -4420,7 +4420,7 @@ case 119:
 tr229:
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -4439,7 +4439,7 @@ tr318:
 	{ mark_aval = p; }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -4486,7 +4486,7 @@ tr295:
 	{ SET(akey, p); }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -4494,7 +4494,7 @@ tr295:
 tr230:
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -4504,7 +4504,7 @@ tr319:
 	{ mark_aval = p; }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -4522,7 +4522,7 @@ case 121:
 	}
 	goto st99;
 tr217:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 #line 111 "hpricot_scan.rl"
 	{ mark_aval = p; }
@@ -4533,15 +4533,15 @@ tr217:
   }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{act = 10;}
 	goto st211;
 tr225:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 #line 116 "hpricot_scan.rl"
 	{
@@ -4550,51 +4550,51 @@ tr225:
   }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{act = 10;}
 	goto st211;
 tr231:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{act = 10;}
 	goto st211;
 tr297:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 #line 120 "hpricot_scan.rl"
 	{ SET(akey, p); }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{act = 10;}
 	goto st211;
 tr298:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
-#line 70 "hpricot_scan.rl"
+#line 70 "hpricot_common.rl"
 	{act = 12;}
 	goto st211;
 tr284:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -4603,17 +4603,17 @@ tr284:
     if (*(p-1) == '"' || *(p-1) == '\'') { SET(aval, p-1); }
     else { SET(aval, p); }
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{act = 10;}
 	goto st211;
 tr313:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 #line 111 "hpricot_scan.rl"
 	{ mark_aval = p; }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -4622,11 +4622,11 @@ tr313:
     if (*(p-1) == '"' || *(p-1) == '\'') { SET(aval, p-1); }
     else { SET(aval, p); }
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{act = 10;}
 	goto st211;
 tr290:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 #line 116 "hpricot_scan.rl"
 	{
@@ -4637,25 +4637,25 @@ tr290:
 	{ SET(akey, p); }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{act = 10;}
 	goto st211;
 tr320:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 #line 111 "hpricot_scan.rl"
 	{ mark_aval = p; }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
-#line 68 "hpricot_scan.rl"
+#line 68 "hpricot_common.rl"
 	{act = 10;}
 	goto st211;
 st211:
@@ -4865,7 +4865,7 @@ tr304:
 	{ mark_aval = p; }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -4878,7 +4878,7 @@ tr223:
   }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -4886,7 +4886,7 @@ tr223:
 tr283:
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -4906,7 +4906,7 @@ tr288:
 	{ SET(akey, p); }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -4921,7 +4921,7 @@ tr215:
   }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -4931,7 +4931,7 @@ tr312:
 	{ mark_aval = p; }
 #line 134 "hpricot_scan.rl"
 	{
-    if (!S->xml)
+    if (!S->xml && !NIL_P(akey))
       akey = rb_funcall(akey, s_downcase, 0);
     ATTR(akey, aval);
   }
@@ -5380,7 +5380,7 @@ case 145:
 		goto tr342;
 	goto tr0;
 tr342:
-#line 46 "hpricot_scan.rl"
+#line 46 "hpricot_common.rl"
 	{ TEXT_PASS(); }
 	goto st146;
 st146:
@@ -5418,7 +5418,7 @@ case 212:
 		goto st212;
 	goto tr420;
 tr343:
-#line 46 "hpricot_scan.rl"
+#line 46 "hpricot_common.rl"
 	{ TEXT_PASS(); }
 	goto st147;
 st147:
@@ -5497,7 +5497,7 @@ case 149:
 		goto st146;
 	goto tr0;
 tr348:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 	goto st213;
 st213:
@@ -6071,36 +6071,36 @@ case 201:
 		goto st201;
 	goto tr349;
 tr407:
-#line 51 "hpricot_scan.rl"
+#line 51 "hpricot_common.rl"
 	{{p = ((te))-1;}{ TEXT_PASS(); }}
 	goto st214;
 tr408:
-#line 50 "hpricot_scan.rl"
+#line 50 "hpricot_common.rl"
 	{ EBLK(comment, 3); {goto st204;} }
-#line 50 "hpricot_scan.rl"
+#line 50 "hpricot_common.rl"
 	{te = p+1;}
 	goto st214;
 tr422:
-#line 51 "hpricot_scan.rl"
+#line 51 "hpricot_common.rl"
 	{te = p+1;{ TEXT_PASS(); }}
 	goto st214;
 tr423:
-#line 9 "hpricot_scan.rl"
+#line 9 "hpricot_common.rl"
 	{curline += 1;}
-#line 51 "hpricot_scan.rl"
+#line 51 "hpricot_common.rl"
 	{te = p+1;{ TEXT_PASS(); }}
 	goto st214;
 tr425:
-#line 51 "hpricot_scan.rl"
+#line 51 "hpricot_common.rl"
 	{te = p;p--;{ TEXT_PASS(); }}
 	goto st214;
 st214:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{ts = 0;}
 	if ( ++p == pe )
 		goto _test_eof214;
 case 214:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{ts = p;}
 #line 6106 "hpricot_scan.c"
 	switch( (*p) ) {
@@ -6109,7 +6109,7 @@ case 214:
 	}
 	goto tr422;
 tr424:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 	goto st215;
 st215:
@@ -6128,36 +6128,36 @@ case 202:
 		goto tr408;
 	goto tr407;
 tr409:
-#line 56 "hpricot_scan.rl"
+#line 56 "hpricot_common.rl"
 	{{p = ((te))-1;}{ TEXT_PASS(); }}
 	goto st216;
 tr410:
-#line 55 "hpricot_scan.rl"
+#line 55 "hpricot_common.rl"
 	{ EBLK(cdata, 3); {goto st204;} }
-#line 55 "hpricot_scan.rl"
+#line 55 "hpricot_common.rl"
 	{te = p+1;}
 	goto st216;
 tr427:
-#line 56 "hpricot_scan.rl"
+#line 56 "hpricot_common.rl"
 	{te = p+1;{ TEXT_PASS(); }}
 	goto st216;
 tr428:
-#line 9 "hpricot_scan.rl"
+#line 9 "hpricot_common.rl"
 	{curline += 1;}
-#line 56 "hpricot_scan.rl"
+#line 56 "hpricot_common.rl"
 	{te = p+1;{ TEXT_PASS(); }}
 	goto st216;
 tr430:
-#line 56 "hpricot_scan.rl"
+#line 56 "hpricot_common.rl"
 	{te = p;p--;{ TEXT_PASS(); }}
 	goto st216;
 st216:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{ts = 0;}
 	if ( ++p == pe )
 		goto _test_eof216;
 case 216:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{ts = p;}
 #line 6163 "hpricot_scan.c"
 	switch( (*p) ) {
@@ -6166,7 +6166,7 @@ case 216:
 	}
 	goto tr427;
 tr429:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{te = p+1;}
 	goto st217;
 st217:
@@ -6185,32 +6185,32 @@ case 203:
 		goto tr410;
 	goto tr409;
 tr432:
-#line 61 "hpricot_scan.rl"
+#line 61 "hpricot_common.rl"
 	{te = p+1;{ TEXT_PASS(); }}
 	goto st218;
 tr433:
-#line 9 "hpricot_scan.rl"
+#line 9 "hpricot_common.rl"
 	{curline += 1;}
-#line 61 "hpricot_scan.rl"
+#line 61 "hpricot_common.rl"
 	{te = p+1;{ TEXT_PASS(); }}
 	goto st218;
 tr434:
-#line 60 "hpricot_scan.rl"
+#line 60 "hpricot_common.rl"
 	{ EBLK(procins, 2); {goto st204;} }
-#line 60 "hpricot_scan.rl"
+#line 60 "hpricot_common.rl"
 	{te = p+1;}
 	goto st218;
 tr436:
-#line 61 "hpricot_scan.rl"
+#line 61 "hpricot_common.rl"
 	{te = p;p--;{ TEXT_PASS(); }}
 	goto st218;
 st218:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{ts = 0;}
 	if ( ++p == pe )
 		goto _test_eof218;
 case 218:
-#line 1 "hpricot_scan.rl"
+#line 1 "NONE"
 	{ts = p;}
 #line 6216 "hpricot_scan.c"
 	switch( (*p) ) {
